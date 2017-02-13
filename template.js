@@ -1,5 +1,7 @@
+import paintings from './list';
+
 module.exports = {
-	import paintings from './list';
+	
 
 	function _template (data) = {
 	var painting = document.createElement('div');
