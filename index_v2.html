@@ -9,6 +9,11 @@
 <link href="./list.js" rel="import" />
 <link rel="stylesheet" href="baguetteBox.min.css">
 <script src="baguetteBox.min.js" async></script>
+<script>
+window.onload = function () {
+	baguetteBox.run('.content');
+};
+</script>
 <style type="text/css">
 body {
 	background-color: #091e1e;
@@ -241,7 +246,7 @@ function fade() {
 	caption.classList.add('fade3');
 };
 
-baguetteBox.run('.content');
+
 /*
 
 var img = document.querySelectorAll('.thumbnail img');
