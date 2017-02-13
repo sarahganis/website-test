@@ -7,6 +7,8 @@
 <link href="https://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
 <link href="./list.js" rel="import" />
+<link rel="stylesheet" href="baguetteBox.min.css">
+<script src="baguetteBox.min.js" async></script>
 <style type="text/css">
 body {
 	background-color: #091e1e;
@@ -188,7 +190,9 @@ Oh!
 <div class="content">
 
 <div class="thumbnail">
+<a href="art/das_modell.jpg" data-caption="Das Modell">
 <img src="art/das_modell.jpg">
+</a>
 <div class="description"><div>
 <p>"Das Modell"</p>
 <p>Acrylic / watercolor paper</p>
@@ -237,6 +241,7 @@ function fade() {
 	caption.classList.add('fade3');
 };
 
+baguetteBox.run('.content');
 /*
 
 var img = document.querySelectorAll('.thumbnail img');
