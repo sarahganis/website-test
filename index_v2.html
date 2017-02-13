@@ -2,8 +2,8 @@
 <html>
 <head>
 <title>Art & Illustration by Sarah Leona Ganis, Brooklyn</title>
-<link href="http://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
-<link href="http://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
+<link href="://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
+<link href="://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
 <link href="./list.js" rel="import" />
 <style type="text/css">
 body {
@@ -113,10 +113,32 @@ body {
 	margin-right: 1vh;
 	margin-left: 1vh;
 	margin-top: 1.5vh;
+	background-color: #000;
+	border-radius: 10px;
 }
 .content div img {
 	height: 23.5vh;
 	border-radius: 10px;
+	pointer-events: all;
+	z-index: 80;
+	transition: opacity 250ms ease;
+	
+}
+.content div img:hover {
+	opacity: 0.25;
+}
+.description {
+	height: 23.5vh;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	text-align: center;
+	z-index: 70;
 }
 .visible {
 	opacity: 1;
@@ -144,6 +166,7 @@ Oh!
 
 
 <div class="content">
+
 <div>
 <img src="art/das_modell.jpg">
 </div>
@@ -187,8 +210,11 @@ function fade() {
 	content.classList.add('fade2');
 	caption.classList.add('fade3');
 }
+/*
+function _template(paintings) {
 
-
+}
+*/
 /*
  var left = document.querySelector('.leftnav');
         left.onclick = function(){
