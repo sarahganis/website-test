@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Art & Illustration by Sarah Leona Ganis, Brooklyn</title>
+<link href="http://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
+<link href="http://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
+<link href="./template.js" rel="import" />
+<link href="./list.js" rel="import" />
+<link rel="stylesheet" href="baguetteBox.min.css">
+<script src="baguetteBox.min.js" async></script>
+<script>
+appendImg(paintings);
+</script>
+<script>
+window.onload = function () {
+	baguetteBox.run('.content');
+};
+</script>
+<style type="text/css">
+body {
+	background-color: #091e1e;
+	color: #fdfde3;
+	margin-top: 10px;
+	overflow: hidden;
+}
+@keyframes fade {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes fade3 {
+	0% {opacity: 0;}
+	10% {opacity: 1;}
+	50% {opacity: 1;}
+	70% {opacity: 0;}
+	100% {opacity: 0;}
+}
+@font-face {
+	font-family: GillSans;
+	src: url(GillSans.ttc);
+}
+.fade {	
+	animation: fade 800ms ease 750ms 1 forwards;
+	-webkit-animation: fade 800ms ease 750ms 1 forwards
+}
+.fade2 {	
+	animation: fade 3s ease 1s 1 forwards;
+	-webkit-animation: fade 3s ease 1s 1 forwards
+}
+.fade3 {
+	animation: fade3 10s ease 0ms 1;
+	-webkit-animation: fade3 10s ease 0ms 1
+}
+.topnav {
+	text-transform: uppercase;
+	font-family: "Faster One";
+	font-size: 22px;
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	height: 12vh;
+	transform: translate(-50%,0%);
+	-webkit-transform: translate(-50%,0%);
+	z-index: 10;
+	text-align: center;
+	opacity: 0;
+	z-index: 100;
+
+}
+.topnav div {
+	position: relative;
+	display: block;
+	top: 50%;
+	transform: translate(0%,-50%);
+	-webkit-transform: translate(0%,-50%)
+}
+.main {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	height: 60vh;
+	opacity: 1;
+	pointer-events: all;
+	z-index: 50;
+}
+.main2 {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	height: 60vh;
+	width: 60vh;
+	pointer-events: none;
+	z-index: 60;
+}
+.caption {
+	margin-top: 20vh;
+	margin-right: 7vh;
+	float: right;
+	opacity: 0;
+	font-family: "Sofia";
+	font-weight: 100;
+	font-size: 30px;
+	z-index: 100;
+}
+.content {
+	position: absolute;
+	bottom: 0vh;
+	height: 28vh;
+	width: 80%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	-webkit-transform: translate(-50%,0%);
+	background-color: #102928;
+	opacity: 0;
+	border-radius: 25px;
+	z-index: 70;
+	padding-left: 3vh;
+	padding-right: 3vh;
+	overflow: auto;
+	white-space: nowrap;
+}
+.thumbnail {
+	position: relative;
+	height: 23.5vh;
+	box-sizing: border-box;
+	display: inline-block;
+	margin-right: 1vh;
+	margin-left: 1vh;
+	margin-top: 1.5vh;
+	background-color: #000;
+	border-radius: 10px;
+	z-index: 80;
+	vertical-align: top;
+}
+.thumbnail img {
+	position: relative;
+	height: 23.5vh;
+	border-radius: 10px;
+	pointer-events: all;
+	z-index: 90;
+	transition: opacity 250ms ease;
+}
+.thumbnail img:hover {
+	opacity: 0.25;
+}
+.description {
+	position: absolute;
+	top: 0%;
+	left: 0;
+	width: 100%;
+	font-family: GillSans;
+	font-size: 12px;
+	height: 23.5vh;
+	text-align: center;
+	pointer-events: none;
+}
+.description div {
+	position: relative;
+	z-index: 75;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+p {
+	line-height: 12px;
+	white-space: normal;
+}
+.visible {
+	opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="topnav">
+<div>
+Sarah Leona Ganis<br />
+Art & Illustration<br />
+Brooklyn, NY
+</div>
+</div>
+
+
+
+<img class="main" src="das_modell_logo.png" onclick="fade()">
+
+<div class="main2">
+<div class="caption">
+Oh!
+</div>
+</div>
+
+<div class="content">
+</div>
+<!--
+<div class="content">
+
+<div class="thumbnail">
+<a href="art/das_modell.jpg" data-caption="Das Modell">
+<img src="art/das_modell.jpg">
+</a>
+<div class="description"><div>
+<p>"Das Modell"</p>
+<p>Acrylic / watercolor paper</p>
+<p>9x12</p>
+<p>Sold</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<img src="art/betelgeuse.jpg">
+</div>
+
+<div class="thumbnail">
+<img src="art/crane.jpg">
+</div>
+
+<div class="thumbnail">
+<img src="art/face.jpg">
+</div>
+
+<div class="thumbnail">
+<img src="art/cardfront.jpg">
+</div>
+
+<div class="thumbnail">
+<img src="art/cardback.jpg">
+</div>
+
+<div class="thumbnail">
+<img src="art/glittertears.jpg">
+</div>
+
+<div class="thumbnail">
+<img src="art/honey.jpg">
+</div>
+</div>
+-->
+<script type="text/javascript">
+
+function fade() {
+	var topNav = document.querySelector('.topnav');
+	var content = document.querySelector('.content');
+	var caption = document.querySelector('.caption');
+	topNav.classList.add('fade');
+	content.classList.add('fade2');
+	caption.classList.add('fade3');
+};
+
+
+/*
+
+var img = document.querySelectorAll('.thumbnail img');
+img.onmouseover = function () {
+		var desc = document.querySelectorAll('.description');
+		desc.classList.add('visible');
+	};
+img.onmouseout = function(){
+		var desc = document.querySelectorAll('.description');
+		desc.classList.remove('visible');
+};
+*/
+/*
+function _template(paintings) {
+
+}
+*/
+/*
+ var left = document.querySelector('.leftnav');
+        left.onclick = function(){
+            var content = document.querySelector('.scrollcontent')
+            content.style.marginLeft = '10vw';
+            };
+ var right = document.querySelector('.rightnav');
+      	right.onclick = function(){
+            var content = document.querySelector('.scrollcontent')
+            content.style.marginLeft = '-10vw';
+            };
+            */
+</script>
+</body>
+</html>
