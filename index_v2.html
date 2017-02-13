@@ -123,13 +123,13 @@ body {
 	margin-top: 1.5vh;
 	background-color: #000;
 	border-radius: 10px;
+	z-index: 80;
 	vertical-align: top;
 }
 .thumbnail img {
 	height: 23.5vh;
 	border-radius: 10px;
 	pointer-events: all;
-	z-index: 180;
 	transition: opacity 250ms ease;
 }
 .thumbnail img:hover {
@@ -140,16 +140,16 @@ body {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 75;
 	font-family: GillSans;
 	font-size: 16px;
 	height: 23.5vh;
-	margin: auto;
 	text-align: center;
 	pointer-events: none;
 }
 p {
 	line-height: 12px;
+	position: relative;
+	z-index: 75;
 }
 .visible {
 	opacity: 1;
@@ -181,12 +181,13 @@ Oh!
 <div class="thumbnail">
 <img src="art/das_modell.jpg">
 <div class="description">
-<p>*</p>
+<p></p>
+<p></p>
 <p>"Das Modell"</p>
 <p>Acrylic / watercolor paper</p>
 <p>9x12</p>
 <p>Sold</p>
-<p>*</p>
+<p></p>
 </div>
 </div>
 
