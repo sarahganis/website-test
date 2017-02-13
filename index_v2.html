@@ -127,9 +127,11 @@ body {
 	vertical-align: top;
 }
 .thumbnail img {
+	position: relative;
 	height: 23.5vh;
 	border-radius: 10px;
 	pointer-events: all;
+	z-index: 90;
 	transition: opacity 250ms ease;
 }
 .thumbnail img:hover {
@@ -137,19 +139,26 @@ body {
 }
 .description {
 	position: absolute;
-	top: 0;
+	top: 0%;
 	left: 0;
 	width: 100%;
 	font-family: GillSans;
-	font-size: 16px;
+	font-size: 12px;
 	height: 23.5vh;
 	text-align: center;
 	pointer-events: none;
 }
-p {
-	line-height: 12px;
+.description div {
 	position: relative;
 	z-index: 75;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+p {
+	line-height: 12px;
+	white-space: normal;
 }
 .visible {
 	opacity: 1;
@@ -180,15 +189,12 @@ Oh!
 
 <div class="thumbnail">
 <img src="art/das_modell.jpg">
-<div class="description">
-<p></p>
-<p></p>
+<div class="description"><div>
 <p>"Das Modell"</p>
 <p>Acrylic / watercolor paper</p>
 <p>9x12</p>
 <p>Sold</p>
-<p></p>
-</div>
+</div></div>
 </div>
 
 <div class="thumbnail">
@@ -229,7 +235,20 @@ function fade() {
 	topNav.classList.add('fade');
 	content.classList.add('fade2');
 	caption.classList.add('fade3');
-}
+};
+
+/*
+
+var img = document.querySelectorAll('.thumbnail img');
+img.onmouseover = function () {
+		var desc = document.querySelectorAll('.description');
+		desc.classList.add('visible');
+	};
+img.onmouseout = function(){
+		var desc = document.querySelectorAll('.description');
+		desc.classList.remove('visible');
+};
+*/
 /*
 function _template(paintings) {
 
