@@ -1,7 +1,13 @@
-import paintings from './list';
+export default function(data) {
+	const $contentWrapper = document.querySelector('.content');
+	function appendImg (list) {
+	for (var x = 0; x < list.length; x++) {
+      $contentWrapper.appendChild(_template(list[x]);
+    }
+}
 
-module.exports = {
-	
+}
+
 
 	function _template (data) = {
 	var painting = document.createElement('div');
@@ -19,14 +25,9 @@ module.exports = {
 	`;
 	return painting;
 }
-const $contentWrapper = document.querySelector('.content');
 
-function appendImg (list) {
-	for (var x = 0; x < list.length; x++) {
-      $contentWrapper.appendChild(_template(list[x]);
-    }
-}
-}
+
+
 /*
 <div class="thumbnail">
 <a href="art/das_modell.jpg" data-caption="Das Modell">
