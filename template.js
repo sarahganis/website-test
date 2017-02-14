@@ -1,9 +1,6 @@
-import { paintings } from './list';
-
 export default function(data) {
 	const $contentWrapper = document.querySelector('div.content');
-	appendImg(paintings);
-	console.log(paintings);
+	appendImg(data);
 }
 
 
@@ -25,8 +22,8 @@ export default function(data) {
 	return painting;
 }
 
-	function appendImg (list) {
-	for (var x = 0; x < list.length; x++) {
+	function appendImg (data) {
+	for (var x = 0; x < data.length; x++) {
       $contentWrapper.appendChild(_template(list[x]);
     }
 

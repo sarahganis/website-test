@@ -10,11 +10,19 @@
 <link rel="stylesheet" href="baguetteBox.min.css">
 <script src="baguetteBox.min.js" async></script>
 <script src="template.js" async></script>
+
 <script>
 window.onload = function () {
 	baguetteBox.run('.content');
 };
 </script>
+
+<script>
+import paintingTemplate from './template.js';
+import paintings from './list.js';
+paintingTemplate(paintings);
+</script>
+
 <style type="text/css">
 body {
 	background-color: #091e1e;
