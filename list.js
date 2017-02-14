@@ -36,7 +36,7 @@ module.exports = {
 		price: 'Sold',
 	},
 	{
-		img: 'art/cardback.jpg'
+		img: 'art/cardback.jpg',
 		name: 'Queen of Spades',
 		medium: 'Acrylic, illustration board',
 		size: '5 x 7 (pair)',
