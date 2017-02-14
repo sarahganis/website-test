@@ -1,9 +1,6 @@
 export default function(data) {
 	const $contentWrapper = document.querySelector('div.content');
 	appendImg(data);
-}
-
-
 
 	function _template (data) = {
 	var painting = document.createElement('div');
@@ -26,7 +23,7 @@ export default function(data) {
 	for (var x = 0; x < data.length; x++) {
       $contentWrapper.appendChild(_template(data[x]);
     }
-
+}
 
 /*
 <div class="thumbnail">
