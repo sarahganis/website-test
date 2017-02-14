@@ -1,4 +1,4 @@
-import paintings from './list';
+import { paintings } from './list';
 
 export default function(data) {
 	const $contentWrapper = document.querySelector('.content');
