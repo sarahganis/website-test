@@ -24,7 +24,7 @@ export default function(data) {
 
 	function appendImg (data) {
 	for (var x = 0; x < data.length; x++) {
-      $contentWrapper.appendChild(_template(list[x]);
+      $contentWrapper.appendChild(_template(data[x]);
     }
 
 
