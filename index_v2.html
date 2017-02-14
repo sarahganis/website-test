@@ -6,7 +6,7 @@
 <link href="http://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
-<link href="./list.js" rel="import" />
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="baguetteBox.min.css">
 <script src="baguetteBox.min.js" async></script>
 <script>
@@ -21,11 +21,17 @@ body {
 	margin-top: 10px;
 	overflow: hidden;
 }
+a {
+	color: #fdfde3;
+}
+a:hover {
+	color: #FF9B58;
+}
 @keyframes fade {
 	from {opacity: 0;}
 	to {opacity: 1;}
 }
-@keyframes fade3 {
+@keyframes fade-slow {
 	0% {opacity: 0;}
 	10% {opacity: 1;}
 	50% {opacity: 1;}
@@ -38,15 +44,23 @@ body {
 }
 .fade {	
 	animation: fade 800ms ease 750ms 1 forwards;
-	-webkit-animation: fade 800ms ease 750ms 1 forwards
+	-webkit-animation: fade 800ms ease 750ms 1 forwards;
 }
-.fade2 {	
+.fade-1 {	
+	animation: fade 2s ease 1.5s 1 forwards;
+	-webkit-animation: fade 2s ease 1.5s 1 forwards;
+}
+.fade-2 {	
 	animation: fade 3s ease 1s 1 forwards;
-	-webkit-animation: fade 3s ease 1s 1 forwards
+	-webkit-animation: fade 3s ease 1s 1 forwards;
 }
-.fade3 {
-	animation: fade3 10s ease 0ms 1;
-	-webkit-animation: fade3 10s ease 0ms 1
+.fade-3 {	
+	animation: fade 3.3s ease 1s 1 forwards;
+	-webkit-animation: fade 3.3s ease 1s 1 forwards;
+}
+.fade-slow {
+	animation: fade-slow 10s ease 0ms 1;
+	-webkit-animation: fade-slow 10s ease 0ms 1;
 }
 .topnav {
 	text-transform: uppercase;
@@ -69,7 +83,7 @@ body {
 	display: block;
 	top: 50%;
 	transform: translate(0%,-50%);
-	-webkit-transform: translate(0%,-50%)
+	-webkit-transform: translate(0%,-50%);
 }
 .main {
 	position: absolute;
@@ -167,8 +181,40 @@ p {
 	line-height: 12px;
 	white-space: normal;
 }
-.visible {
-	opacity: 1;
+.rightnav {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	opacity: 0;
+}
+.buy {
+	border: 2px solid #fdfde3;
+	font-family: GillSans;
+	padding: 5px;
+	text-transform: uppercase;
+	float: right;
+	display: inline-block;
+	margin-left: 2px;
+	border-radius: 2px;
+}
+.fa {
+	float: right;
+	font-size: 34px;
+	padding-right: 8px;
+}
+.scroll {
+	position: absolute;
+	bottom: 12vh;
+	opacity: 0;
+}
+.scroll img {
+	height: 3vh;
+}
+.right {
+	right: 5vw;
+}
+.left {
+	left: 5vw;
 }
 </style>
 </head>
@@ -189,6 +235,21 @@ Brooklyn, NY
 <div class="caption">
 Oh!
 </div>
+</div>
+
+<div class="rightnav">
+<a href="https://www.etsy.com/shop/sexydeathray"><div class="buy">For sale</div></a>
+<a href="https://twitter.com/sexydeathray"><i class="fa fa-twitter-square"></i></a>
+<a href="https://www.instagram.com/pineapplekittenhead/"><i class="fa fa-instagram"></i></a>
+<a href="https://www.facebook.com/sarahganis"><i class="fa fa-facebook-square"></i></a>
+</div>
+
+<div class="scroll left">
+<img src="arrow-left.png">
+</div>
+
+<div class="scroll right">
+<img src="arrow-right.png">
 </div>
 
 
@@ -384,17 +445,6 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/nope.jpg">
-<img src="art/nope.jpg">
-</a>
-<div class="description"><div>
-<p>"No Feels"</p>
-<p>Acrylic, watercolor paper</p>
-<p>9 x 12</p>
-</div></div>
-</div>
-
-<div class="thumbnail">
 <a href="art/hugh.jpg">
 <img src="art/hugh.jpg">
 </a>
@@ -449,6 +499,17 @@ Oh!
 </div></div>
 </div>
 
+<div class="thumbnail">
+<a href="art/nope.jpg">
+<img src="art/nope.jpg">
+</a>
+<div class="description"><div>
+<p>"No Feels"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
 <!--end content-->
 </div>
 
@@ -456,43 +517,20 @@ Oh!
 
 function fade() {
 	var topNav = document.querySelector('.topnav');
+	var rightNav = document.querySelector('.rightnav');
 	var content = document.querySelector('.content');
 	var caption = document.querySelector('.caption');
+	var scrollRight = document.querySelector('.right');
+	var scrollLeft = document.querySelector('.left');
 	topNav.classList.add('fade');
-	content.classList.add('fade2');
-	caption.classList.add('fade3');
+	rightNav.classList.add('fade-1')
+	content.classList.add('fade-2');
+	caption.classList.add('fade-slow');
+	scrollRight.classList.add('fade-3');
+	scrollLeft.classList.add('fade-3');
+
 };
 
-
-/*
-
-var img = document.querySelectorAll('.thumbnail img');
-img.onmouseover = function () {
-		var desc = document.querySelectorAll('.description');
-		desc.classList.add('visible');
-	};
-img.onmouseout = function(){
-		var desc = document.querySelectorAll('.description');
-		desc.classList.remove('visible');
-};
-*/
-/*
-function _template(paintings) {
-
-}
-*/
-/*
- var left = document.querySelector('.leftnav');
-        left.onclick = function(){
-            var content = document.querySelector('.scrollcontent')
-            content.style.marginLeft = '10vw';
-            };
- var right = document.querySelector('.rightnav');
-      	right.onclick = function(){
-            var content = document.querySelector('.scrollcontent')
-            content.style.marginLeft = '-10vw';
-            };
-            */
 </script>
 </body>
 </html>
