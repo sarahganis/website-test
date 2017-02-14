@@ -1,12 +1,10 @@
+import paintings from './list';
+
 export default function(data) {
 	const $contentWrapper = document.querySelector('.content');
-	function appendImg (list) {
-	for (var x = 0; x < list.length; x++) {
-      $contentWrapper.appendChild(_template(list[x]);
-    }
+	appendImg(paintings);
 }
 
-}
 
 
 	function _template (data) = {
@@ -25,7 +23,10 @@ export default function(data) {
 	`;
 	return painting;
 }
-
+	function appendImg (list) {
+	for (var x = 0; x < list.length; x++) {
+      $contentWrapper.appendChild(_template(list[x]);
+    }
 
 
 /*
