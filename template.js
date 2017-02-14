@@ -3,6 +3,7 @@ import { paintings } from './list';
 export default function(data) {
 	const $contentWrapper = document.querySelector('div.content');
 	appendImg(paintings);
+	console.log(paintings);
 }
 
 
