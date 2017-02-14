@@ -80,7 +80,7 @@ module.exports = {
 ]
 
 
-
+/*
 
 	{
 		img:
@@ -89,3 +89,5 @@ module.exports = {
 		size:
 		price:
 	},
+
+	*/
