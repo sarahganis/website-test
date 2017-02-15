@@ -1,3 +1,10 @@
+<!--
+Desired additional functionality:
+implement horizontal scrolling by mousewheel or arrow click
+alternative to hover opacity on mobile
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -155,6 +162,7 @@ a:hover {
 	pointer-events: all;
 	z-index: 90;
 	transition: opacity 250ms ease;
+	-webkit-transition: opacity 250ms ease;
 }
 .thumbnail img:hover {
 	opacity: 0.25;
@@ -211,6 +219,10 @@ p {
 .scroll img {
 	height: 3vh;
 }
+.scroll img:active {
+	margin-bottom: -1px;
+	opacity: 0.75;
+}
 .right {
 	right: 5vw;
 }
@@ -246,11 +258,11 @@ Oh!
 </div>
 
 <div class="scroll left">
-<img src="arrow-left.png">
+<img src="arrow-left.png" onclick="left()">
 </div>
 
 <div class="scroll right">
-<img src="arrow-right.png">
+<img src="arrow-right.png" onclick="right()">
 </div>
 
 
@@ -521,16 +533,27 @@ function fade() {
 	var rightNav = document.querySelector('.rightnav');
 	var content = document.querySelector('.content');
 	var caption = document.querySelector('.caption');
-	var scrollRight = document.querySelector('.right');
-	var scrollLeft = document.querySelector('.left');
+	var arrowRight = document.querySelector('.right');
+	var arrowLeft = document.querySelector('.left');
 	topNav.classList.add('fade');
 	rightNav.classList.add('fade-1')
 	content.classList.add('fade-2');
 	caption.classList.add('fade-slow');
-	scrollRight.classList.add('fade-3');
-	scrollLeft.classList.add('fade-3');
+	arrowRight.classList.add('fade-3');
+	arrowLeft.classList.add('fade-3');
+}
 
-};
+
+function right() {
+	var content = document.querySelector('.content');
+	content.scrollLeft += 200;
+}
+
+function left() {
+	var content = document.querySelector('.content');
+	content.scrollLeft -= 200;
+}
+
 
 </script>
 </body>
