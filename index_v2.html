@@ -1,7 +1,6 @@
 <!--
-Desired additional functionality:
-implement horizontal scrolling by mousewheel or arrow click
-alternative to hover opacity on mobile
+Finished prototype
+supersedes v1 and v3
 -->
 
 
@@ -163,6 +162,8 @@ a:hover {
 	z-index: 90;
 	transition: opacity 250ms ease;
 	-webkit-transition: opacity 250ms ease;
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
 }
 .thumbnail img:hover {
 	opacity: 0.25;
@@ -222,7 +223,7 @@ p {
 	-webkit-transition: all 150ms ease;
 	opacity: 0.85;
 }
-.scroll img:active {
+.scroll img:active, .scroll img:hover {
 	opacity: 1;
 }
 .right {
@@ -271,18 +272,18 @@ Oh!
 <div class="content">
 
 <div class="thumbnail">
-<a href="art/das_modell.jpg">
+<a href="art/das_modell.jpg" data-caption="'Das Modell' - Acrylic, watercolor paper, 9x12">
 <img src="art/das_modell.jpg">
 </a>
 <div class="description"><div>
 <p>"Das Modell"</p>
 <p>Acrylic, watercolor paper</p>
-<p>9x12</p>
+<p>9 x 12</p>
 </div></div>
 </div>
 
 <div class="thumbnail">
-<a href="art/betelgeuse.jpg">
+<a href="art/betelgeuse.jpg" data-caption="'So nihil, so angst, call Betelgeuse' - Acrylic, watercolor paper, 8x10 (original available)">
 <img src="art/betelgeuse.jpg">
 </a>
 <div class="description"><div>
@@ -293,7 +294,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/crane.jpg">
+<a href="art/crane.jpg" data-caption="'Cookie, the Paper Crane' - Acrylic, watercolor paper, 9x12">
 <img src="art/crane.jpg">
 </a>
 <div class="description"><div>
@@ -304,7 +305,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/face.jpg">
+<a href="art/face.jpg" data-caption="Untitled Self-Portrait - Acrylic, illustration board, 8x10 (original available)">
 <img src="art/face.jpg">
 </a>
 <div class="description"><div>
@@ -317,7 +318,7 @@ Oh!
 <!--amelia earhart will go here -->
 
 <div class="thumbnail">
-<a href="art/cardfront.jpg">
+<a href="art/cardfront.jpg" data-caption="'Queen of Spades' - Acrylic, illustration board, 5x7 (pair)">
 <img src="art/cardfront.jpg">
 </a>
 <div class="description"><div>
@@ -328,7 +329,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/cardback.jpg">
+<a href="art/cardback.jpg" data-caption="'Queen of Spades' - Acrylic, illustration board, 5x7 (pair)">
 <img src="art/cardback.jpg">
 </a>
 <div class="description"><div>
@@ -339,7 +340,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/kittenmecha.jpg">
+<a href="art/kittenmecha.jpg" data-caption="'We Have No Idea How This Thing Works' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/kittenmecha.jpg">
 </a>
 <div class="description"><div>
@@ -350,7 +351,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/glittertears.jpg">
+<a href="art/glittertears.jpg" data-caption="'She Has No Mouth' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/glittertears.jpg">
 </a>
 <div class="description"><div>
@@ -361,7 +362,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/honey.jpg">
+<a href="art/honey.jpg" data-caption="'Honey Bear' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/honey.jpg">
 </a>
 <div class="description"><div>
@@ -372,7 +373,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/lait.jpg">
+<a href="art/lait.jpg" data-caption="'Lait Éclat' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/lait.jpg">
 </a>
 <div class="description"><div>
@@ -383,7 +384,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/lemonade.jpg">
+<a href="art/lemonade.jpg" data-caption="'Story of My Life' - Acrylic, illustration board, 11x14 (original available)">
 <img src="art/lemonade.jpg">
 </a>
 <div class="description"><div>
@@ -394,7 +395,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/kale.jpg">
+<a href="art/kale.jpg" data-caption="'Locally Grown' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/kale.jpg">
 </a>
 <div class="description"><div>
@@ -405,7 +406,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/strawberrythief.jpg">
+<a href="art/strawberrythief.jpg" data-caption="'Hello Strawberry Thief' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/strawberrythief.jpg">
 </a>
 <div class="description"><div>
@@ -416,7 +417,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/cakewaffles.jpg">
+<a href="art/cakewaffles.jpg" data-caption="'Strawberrykitten Cakewaffles, a la mode' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/cakewaffles.jpg">
 </a>
 <div class="description"><div>
@@ -427,7 +428,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/edward.jpg">
+<a href="art/edward.jpg" data-caption="'Edward' - Acrylic, watercolor paper, 9x12">
 <img src="art/edward.jpg">
 </a>
 <div class="description"><div>
@@ -438,7 +439,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/deadsky.jpg">
+<a href="art/deadsky.jpg" data-caption="'Dead Sky's Stars' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/deadsky.jpg">
 </a>
 <div class="description"><div>
@@ -449,7 +450,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/misremembering.jpg">
+<a href="art/misremembering.jpg" data-caption="'For Misremembering The Color of the Strawberries' - Acrylic, canvas, 8x10 (original available)">
 <img src="art/misremembering.jpg">
 </a>
 <div class="description"><div>
@@ -460,7 +461,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/hugh.jpg">
+<a href="art/hugh.jpg" data-caption="'Hugh' - Pen and ink, paper, 8x10 (original available)">
 <img src="art/hugh.jpg">
 </a>
 <div class="description"><div>
@@ -471,7 +472,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/eurocat.jpg">
+<a href="art/eurocat.jpg" data-caption="'EUROCAT module 1' - Acrylic, canvas board, 5x5">
 <img src="art/eurocat.jpg">
 </a>
 <div class="description"><div>
@@ -482,7 +483,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/beetlewave.jpg">
+<a href="art/beetlewave.jpg" data-caption="'Beetlewave' - Prismacolor pencil, marker, paper, 8x10 (original available)">
 <img src="art/beetlewave.jpg">
 </a>
 <div class="description"><div>
@@ -493,7 +494,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/lolita_eevee.jpg">
+<a href="art/lolita_eevee.jpg" data-caption="'Lolita Eevee' - Acrylic, canvas, 8x10 (original available)">
 <img src="art/lolita_eevee.jpg">
 </a>
 <div class="description"><div>
@@ -504,7 +505,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/perfect.jpg">
+<a href="art/perfect.jpg" data-caption="'Perfect' - Acrylic, canvas, 8x10">
 <img src="art/perfect.jpg">
 </a>
 <div class="description"><div>
@@ -515,7 +516,7 @@ Oh!
 </div>
 
 <div class="thumbnail">
-<a href="art/nope.jpg">
+<a href="art/nope.jpg" data-caption="'No Feels' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/nope.jpg">
 </a>
 <div class="description"><div>
@@ -548,12 +549,12 @@ function fade() {
 
 function right() {
 	var content = document.querySelector('.content');
-	content.scrollLeft += 200;
+	content.scrollLeft += 350;
 }
 
 function left() {
 	var content = document.querySelector('.content');
-	content.scrollLeft -= 200;
+	content.scrollLeft -= 350;
 }
 
 
