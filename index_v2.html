@@ -213,15 +213,17 @@ p {
 }
 .scroll {
 	position: absolute;
-	bottom: 12vh;
+	bottom: 12.75vh;
 	opacity: 0;
 }
 .scroll img {
-	height: 3vh;
+	height: 2.5vh;
+	transition: all 150ms ease;
+	-webkit-transition: all 150ms ease;
+	opacity: 0.85;
 }
 .scroll img:active {
-	margin-bottom: -1px;
-	opacity: 0.75;
+	opacity: 1;
 }
 .right {
 	right: 5vw;
