@@ -1,3 +1,9 @@
+<!--
+Finished prototype
+supersedes v1 and v3
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +12,14 @@
 <link href="http://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Faster One" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
-<link href="./list.js" rel="import" />
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="baguetteBox.min.css">
+<script src="baguetteBox.min.js" async></script>
+<script>
+window.onload = function () {
+	baguetteBox.run('.content');
+};
+</script>
 <style type="text/css">
 body {
 	background-color: #091e1e;
@@ -14,28 +27,47 @@ body {
 	margin-top: 10px;
 	overflow: hidden;
 }
+a {
+	color: #fdfde3;
+		transition: color 250ms ease;
+}
+a:hover {
+	color: #FF9B58;
+}
 @keyframes fade {
 	from {opacity: 0;}
 	to {opacity: 1;}
 }
-@keyframes fade3 {
+@keyframes fade-slow {
 	0% {opacity: 0;}
 	10% {opacity: 1;}
 	50% {opacity: 1;}
 	70% {opacity: 0;}
 	100% {opacity: 0;}
 }
+@font-face {
+	font-family: GillSans;
+	src: url(GillSans.ttc);
+}
 .fade {	
 	animation: fade 800ms ease 750ms 1 forwards;
-	-webkit-animation: fade 800ms ease 750ms 1 forwards
+	-webkit-animation: fade 800ms ease 750ms 1 forwards;
 }
-.fade2 {	
+.fade-1 {	
+	animation: fade 2s ease 1.5s 1 forwards;
+	-webkit-animation: fade 2s ease 1.5s 1 forwards;
+}
+.fade-2 {	
 	animation: fade 3s ease 1s 1 forwards;
-	-webkit-animation: fade 3s ease 1s 1 forwards
+	-webkit-animation: fade 3s ease 1s 1 forwards;
 }
-.fade3 {
-	animation: fade3 10s ease 0ms 1;
-	-webkit-animation: fade3 10s ease 0ms 1
+.fade-3 {	
+	animation: fade 3.3s ease 1s 1 forwards;
+	-webkit-animation: fade 3.3s ease 1s 1 forwards;
+}
+.fade-slow {
+	animation: fade-slow 10s ease 0ms 1;
+	-webkit-animation: fade-slow 10s ease 0ms 1;
 }
 .topnav {
 	text-transform: uppercase;
@@ -58,7 +90,7 @@ body {
 	display: block;
 	top: 50%;
 	transform: translate(0%,-50%);
-	-webkit-transform: translate(0%,-50%)
+	-webkit-transform: translate(0%,-50%);
 }
 .main {
 	position: absolute;
@@ -109,41 +141,96 @@ body {
 	overflow: auto;
 	white-space: nowrap;
 }
-.content div {
+.thumbnail {
+	position: relative;
 	height: 23.5vh;
+	box-sizing: border-box;
 	display: inline-block;
 	margin-right: 1vh;
 	margin-left: 1vh;
 	margin-top: 1.5vh;
 	background-color: #000;
 	border-radius: 10px;
+	z-index: 80;
+	vertical-align: top;
 }
-.content div img {
+.thumbnail img {
+	position: relative;
 	height: 23.5vh;
 	border-radius: 10px;
 	pointer-events: all;
-	z-index: 80;
+	z-index: 90;
 	transition: opacity 250ms ease;
-	
+	-webkit-transition: opacity 250ms ease;
+	transform: translate3d(0,0,0);
+	-webkit-transform: translate3d(0,0,0);
 }
-.content div img:hover {
+.thumbnail img:hover {
 	opacity: 0.25;
 }
 .description {
-	height: 23.5vh;
-	display: block;
-	box-sizing: border-box;
-	width: 100%;
 	position: absolute;
-	top: 50%;
+	top: 0%;
+	left: 0;
+	width: 100%;
+	font-family: GillSans;
+	font-size: 12px;
+	height: 23.5vh;
+	text-align: center;
+	pointer-events: none;
+}
+.description div {
+	position: relative;
+	z-index: 75;
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
-	text-align: center;
-	z-index: 70;
 }
-.visible {
+p {
+	line-height: 12px;
+	white-space: normal;
+}
+.rightnav {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	opacity: 0;
+}
+.buy {
+	border: 2px solid #fdfde3;
+	font-family: GillSans;
+	padding: 5px;
+	text-transform: uppercase;
+	float: right;
+	display: inline-block;
+	margin-left: 2px;
+	border-radius: 2px;
+}
+.fa {
+	float: right;
+	font-size: 34px;
+	padding-right: 8px;
+}
+.scroll {
+	position: absolute;
+	bottom: 12.75vh;
+	opacity: 0;
+}
+.scroll img {
+	height: 2.5vh;
+	transition: all 150ms ease;
+	-webkit-transition: all 150ms ease;
+	opacity: 0.85;
+}
+.scroll img:active, .scroll img:hover {
 	opacity: 1;
+}
+.right {
+	right: 5vw;
+}
+.left {
+	left: 5vw;
 }
 </style>
 </head>
@@ -166,69 +253,311 @@ Oh!
 </div>
 </div>
 
+<div class="rightnav">
+<a href="https://www.etsy.com/shop/sexydeathray"><div class="buy">For sale</div></a>
+<a href="https://twitter.com/sexydeathray"><i class="fa fa-twitter-square"></i></a>
+<a href="https://www.instagram.com/pineapplekittenhead/"><i class="fa fa-instagram"></i></a>
+<a href="https://www.facebook.com/sarahganis"><i class="fa fa-facebook-square"></i></a>
+</div>
+
+<div class="scroll left">
+<img src="arrow-left.png" onclick="left()">
+</div>
+
+<div class="scroll right">
+<img src="arrow-right.png" onclick="right()">
+</div>
+
 
 <div class="content">
 
-<div>
+<div class="thumbnail">
+<a href="art/das_modell.jpg" data-caption="'Das Modell' - Acrylic, watercolor paper, 9x12">
 <img src="art/das_modell.jpg">
+</a>
+<div class="description"><div>
+<p>"Das Modell"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
 </div>
 
-<div>
+<div class="thumbnail">
+<a href="art/betelgeuse.jpg" data-caption="'So nihil, so angst, call Betelgeuse' - Acrylic, watercolor paper, 8x10 (original available)">
 <img src="art/betelgeuse.jpg">
+</a>
+<div class="description"><div>
+<p>"So nihil, so angst, call Betelgeuse"</p>
+<p>Acrylic, watercolor paper</p>
+<p>8 x 10</p>
+</div></div>
 </div>
 
-<div>
+<div class="thumbnail">
+<a href="art/crane.jpg" data-caption="'Cookie, the Paper Crane' - Acrylic, watercolor paper, 9x12">
 <img src="art/crane.jpg">
+</a>
+<div class="description"><div>
+<p>"Cookie, the Paper Crane"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
 </div>
 
-<div>
+<div class="thumbnail">
+<a href="art/face.jpg" data-caption="Untitled Self-Portrait - Acrylic, illustration board, 8x10 (original available)">
 <img src="art/face.jpg">
+</a>
+<div class="description"><div>
+<p>Untitled Self-Portrait</p>
+<p>Acrylic, illustration board</p>
+<p>8 x 10</p>
+</div></div>
 </div>
 
-<div>
+<!--amelia earhart will go here -->
+
+<div class="thumbnail">
+<a href="art/cardfront.jpg" data-caption="'Queen of Spades' - Acrylic, illustration board, 5x7 (pair)">
 <img src="art/cardfront.jpg">
+</a>
+<div class="description"><div>
+<p>"Queen of Spades"</p>
+<p>Acrylic, illustration board</p>
+<p>5 x 7 (pair)</p>
+</div></div>
 </div>
 
-<div>
+<div class="thumbnail">
+<a href="art/cardback.jpg" data-caption="'Queen of Spades' - Acrylic, illustration board, 5x7 (pair)">
 <img src="art/cardback.jpg">
+</a>
+<div class="description"><div>
+<p>"Queen of Spades"</p>
+<p>Acrylic, illustration board</p>
+<p>5 x 7 (pair)</p>
+</div></div>
 </div>
 
-<div>
+<div class="thumbnail">
+<a href="art/kittenmecha.jpg" data-caption="'We Have No Idea How This Thing Works' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/kittenmecha.jpg">
+</a>
+<div class="description"><div>
+<p>"We Have No Idea How This Thing Works"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/glittertears.jpg" data-caption="'She Has No Mouth' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/glittertears.jpg">
+</a>
+<div class="description"><div>
+<p>"She Has No Mouth"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
 </div>
 
-<div>
+<div class="thumbnail">
+<a href="art/honey.jpg" data-caption="'Honey Bear' - Acrylic, watercolor paper, 9x12 (original available)">
 <img src="art/honey.jpg">
+</a>
+<div class="description"><div>
+<p>"Honey Bear"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
 </div>
+
+<div class="thumbnail">
+<a href="art/lait.jpg" data-caption="'Lait Éclat' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/lait.jpg">
+</a>
+<div class="description"><div>
+<p>"Lait Éclat"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/lemonade.jpg" data-caption="'Story of My Life' - Acrylic, illustration board, 11x14 (original available)">
+<img src="art/lemonade.jpg">
+</a>
+<div class="description"><div>
+<p>"Story of My Life"</p>
+<p>Acrylic, illustration board</p>
+<p>11 x 14 (shown cropped)</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/kale.jpg" data-caption="'Locally Grown' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/kale.jpg">
+</a>
+<div class="description"><div>
+<p>"Locally Grown"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/strawberrythief.jpg" data-caption="'Hello Strawberry Thief' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/strawberrythief.jpg">
+</a>
+<div class="description"><div>
+<p>"Hello Strawberry Thief"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/cakewaffles.jpg" data-caption="'Strawberrykitten Cakewaffles, a la mode' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/cakewaffles.jpg">
+</a>
+<div class="description"><div>
+<p>"Strawberrykitten Cakewaffles, a la mode"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/edward.jpg" data-caption="'Edward' - Acrylic, watercolor paper, 9x12">
+<img src="art/edward.jpg">
+</a>
+<div class="description"><div>
+<p>"Edward"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/deadsky.jpg" data-caption="'Dead Sky's Stars' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/deadsky.jpg">
+</a>
+<div class="description"><div>
+<p>"Dead Sky's Stars"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/misremembering.jpg" data-caption="'For Misremembering The Color of the Strawberries' - Acrylic, canvas, 8x10 (original available)">
+<img src="art/misremembering.jpg">
+</a>
+<div class="description"><div>
+<p>"For Misremembering The Color of the Strawberries"</p>
+<p>Acrylic, canvas</p>
+<p>8 x 10</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/hugh.jpg" data-caption="'Hugh' - Pen and ink, paper, 8x10 (original available)">
+<img src="art/hugh.jpg">
+</a>
+<div class="description"><div>
+<p>"Hugh"</p>
+<p>Pen and ink, paper</p>
+<p>8 x 10</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/eurocat.jpg" data-caption="'EUROCAT module 1' - Acrylic, canvas board, 5x5">
+<img src="art/eurocat.jpg">
+</a>
+<div class="description"><div>
+<p>"EUROCAT module 1"</p>
+<p>Acrylic, canvas board</p>
+<p>5 x 5</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/beetlewave.jpg" data-caption="'Beetlewave' - Prismacolor pencil, marker, paper, 8x10 (original available)">
+<img src="art/beetlewave.jpg">
+</a>
+<div class="description"><div>
+<p>"Beetlewave"</p>
+<p>Prismacolor pencil, marker, paper</p>
+<p>8 x 10</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/lolita_eevee.jpg" data-caption="'Lolita Eevee' - Acrylic, canvas, 8x10 (original available)">
+<img src="art/lolita_eevee.jpg">
+</a>
+<div class="description"><div>
+<p>"Lolita Eevee"</p>
+<p>Acrylic, canvas</p>
+<p>8 x 10</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/perfect.jpg" data-caption="'Perfect' - Acrylic, canvas, 8x10">
+<img src="art/perfect.jpg">
+</a>
+<div class="description"><div>
+<p>"Perfect"</p>
+<p>Acrylic, canvas</p>
+<p>8 x 10</p>
+</div></div>
+</div>
+
+<div class="thumbnail">
+<a href="art/nope.jpg" data-caption="'No Feels' - Acrylic, watercolor paper, 9x12 (original available)">
+<img src="art/nope.jpg">
+</a>
+<div class="description"><div>
+<p>"No Feels"</p>
+<p>Acrylic, watercolor paper</p>
+<p>9 x 12</p>
+</div></div>
+</div>
+
+<!--end content-->
 </div>
 
 <script type="text/javascript">
 
 function fade() {
 	var topNav = document.querySelector('.topnav');
+	var rightNav = document.querySelector('.rightnav');
 	var content = document.querySelector('.content');
 	var caption = document.querySelector('.caption');
+	var arrowRight = document.querySelector('.right');
+	var arrowLeft = document.querySelector('.left');
 	topNav.classList.add('fade');
-	content.classList.add('fade2');
-	caption.classList.add('fade3');
+	rightNav.classList.add('fade-1')
+	content.classList.add('fade-2');
+	caption.classList.add('fade-slow');
+	arrowRight.classList.add('fade-3');
+	arrowLeft.classList.add('fade-3');
 }
-/*
-function _template(paintings) {
 
+
+function right() {
+	var content = document.querySelector('.content');
+	content.scrollLeft += 350;
 }
-*/
-/*
- var left = document.querySelector('.leftnav');
-        left.onclick = function(){
-            var content = document.querySelector('.scrollcontent')
-            content.style.marginLeft = '10vw';
-            };
- var right = document.querySelector('.rightnav');
-      	right.onclick = function(){
-            var content = document.querySelector('.scrollcontent')
-            content.style.marginLeft = '-10vw';
-            };
-            */
+
+function left() {
+	var content = document.querySelector('.content');
+	content.scrollLeft -= 350;
+}
+
+
 </script>
 </body>
 </html>
