@@ -1,0 +1,131 @@
+<html>
+<head>
+  <title>Flappy Politician</title>
+  <style type='text/css'>
+    body {
+      background: #201b76;
+    }
+    .game-viewport {
+      height: 667px;
+      width: 375px;
+      box-sizing: border-box;
+      background: #4ec8f2;
+      margin: 2rem auto;
+      padding: 1rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes scroll {
+      from { left: 110% }
+      to { left: -10% }
+    }
+    @keyframes flap {
+      from { top: 42% }
+      to { top: 45% }
+    }
+    .title {
+      height: 60px;
+      width: auto;
+      image-rendering: pixelated;
+      position: absolute;
+      top: 0;
+      left: 20px;
+    }
+    .pro--strong {
+      top: 10%;
+    }
+    .pro--weak {
+      top: 25%;
+    }
+    .con--strong {
+      bottom: 10%;
+    }
+    .con--weak {
+      bottom: 25%;
+    }
+    .issue {
+      height: 60px;
+      width: auto;
+      image-rendering: pixelated;
+      position: absolute;
+      left: 110%;
+      animation-name: scroll;
+      animation-duration: 1.5s;
+      animation-timing-function: linear;
+    }
+    .issue1 {
+      animation-delay: 1s;
+    }
+    .issue2 {
+      animation-delay: 2s;
+    }
+    .issue3 {
+      animation-delay: 3s;
+    }
+    .issue4 {
+      animation-delay: 4s;
+    }
+    .issue5 {
+      animation-delay: 5s;
+    }
+    .issue6 {
+      animation-delay: 6s;
+    }
+    .issue7 {
+      animation-delay: 7s;
+    }
+    .issue8 {
+      animation-delay: 8s;
+    }
+    .issue9 {
+      animation-delay: 9s;
+    }
+    .issue10 {
+      animation-delay: 10s;
+    }
+    .issue11 {
+      animation-delay: 11s;
+    }
+    .issue12 {
+      animation-delay: 12s;
+    }
+    .issue13 {
+      animation-delay: 13s;
+    }
+    .issue14 {
+      animation-delay: 14s;
+    }
+    .politician {
+      position: absolute;
+      left: 5%;
+      top: 42%;
+      animation-name: flap;
+      animation-duration: 500ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-direction: alternate;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='game-viewport'>
+    <img src='title.png' class='title' />
+    <img src='weed.png' class='issue issue1 pro--weak' />
+    <img src='anti-swat.png' class='issue issue2 con--strong' />
+    <img src='gun.png' class='issue issue3 con--strong' />
+    <img src='anti-healthcare.png' class='issue issue4 pro--strong' />
+    <img src='bc.png' class='issue issue5 pro--strong' />
+    <img src='anti-military.png' class='issue issue6 con--weak' />
+    <img src='lgbtq.png' class='issue issue7 pro--strong' />
+    <img src='anti-weed.png' class='issue issue8 con--weak' />
+    <img src='military.png' class='issue issue9 con--weak' />
+    <img src='anti-bc.png' class='issue issue10 con--strong' />
+    <img src='healthcare.png' class='issue issue11 pro--strong' />
+    <img src='anti-gun.png' class='issue issue12 pro--strong' />
+    <img src='swat.png' class='issue issue13 con--weak' />
+    <img src='anti-lgbtq.png' class='issue issue14 con--strong' />
+    <img src='cuomo.png' class='politician' />
+  </div>
+</body>
+</html>
